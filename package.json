@@ -1,15 +1,15 @@
 {
-  "name": "tachyons-custom",
-  "version": "4.5.4",
-  "description": "Functional CSS for humans",
-  "author": "mrmrs",
+  "name": "dojo",
+  "version": "0.0.0",
+  "description": "A learning project for the HW interactive design team",
+  "author": "Justin Chick",
   "style": "css/tachyons.min.css",
   "main": "css/tachyons.css",
   "files": [
     "css",
     "src"
   ],
-  "repository": "tachyons-css/tachyons-custom",
+  "repository": "hw-interactive/dojo",
   "keywords": [
     "css",
     "oocss",
@@ -30,12 +30,12 @@
   },
   "contributors": [
     {
-      "name": "adam morse",
-      "email": "hi@mrmrs.cc"
+      "name": "Justin Chick",
+      "email": "jchick@hanleywood.com"
     },
     {
-      "name": "john otander",
-      "url": "http://johnotander.com"
+      "name": "Alex Cortex",
+      "email": "acortez@hanleywood.com"
     }
   ],
   "scripts": {

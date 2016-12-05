@@ -1,9 +1,9 @@
 {
-  "name": "tachyons-custom",
-  "description": "Functional CSS for humans",
+  "name": "dojo",
+  "description": "A learning project for the HW interactive design team",
   "main": "css/tachyons.min.css",
   "authors": [
-    "mrmrs"
+    "Justin Chick"
   ],
   "license": "MIT",
   "keywords": [
@@ -13,7 +13,7 @@
     "responsive",
     "design"
   ],
-  "homepage": "http://tachyons.io",
+  "homepage": "https://github.com/hw-interactive/dojo",
   "ignore": [
     "**/.*",
     "node_modules",
