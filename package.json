@@ -21,9 +21,11 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.9.6",
     "copy-files": "^0.1.0",
     "immutable-css-cli": "^1.1.1",
     "normalize.css": "^5.0.0",
+    "parallelshell": "^2.0.0",
     "tachyons-cli": "^1.0.9",
     "tachyons-modules": "^1.1.8",
     "watch": "^1.0.1"
@@ -39,11 +41,12 @@
     }
   ],
   "scripts": {
-    "start": "npm run build:watch",
+    "start": "parallelshell 'npm run server' 'npm run build:watch'",
     "mutations": "immutable-css src/tachyons.css --strict",
     "build": "npm run build:css && npm run build:minify",
     "build:css": "tachyons src/tachyons.css > css/tachyons.css",
     "build:minify": "tachyons src/tachyons.css -m > css/tachyons.min.css",
-    "build:watch": "watch 'npm run build' ./src/"
+    "build:watch": "watch 'npm run build' ./src/",
+    "server": "browser-sync start --server --files 'css/*.css, *.html'"
   }
 }
