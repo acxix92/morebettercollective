@@ -1,8 +1,8 @@
-# TACHYONS CUSTOM
+# The Dojo
 
-Functional css for humans.
+A learning project for the HW interactive design team.
 
-Quickly build and design new UI without writing css.
+Project specific docs coming soon.
 
 This is a fork of [Tachyons](https://github.com/tachyons-css/tachyons) with values being 
 configurable in a single variables file. More information about Tachyons can be found at http://tachyons.io
@@ -215,21 +215,6 @@ If you want to recompile everything from src everytime you save a change - you c
 If you want to check that a class hasn't been redefined or 'mutated' there is a linter to check that all of the classes have only been defined once. This can be useful if you are using another library or have written some of your own css and want to make sure there are no naming collisions. To do this run the command
 
 ```npm run mutations```
-
-## Contributing
-
-If you want to make a PR to change part of the css source for tachyons, make sure you make the PR on the corresponding module
-that can be found in the [tachyons org](http://github.com/tachyons-css/). Those modules get copied into the main repo so
-any changes you make to the css in this repo would get overridden.
-
-Also please read our [code of conduct](https://github.com/tachyons-css/tachyons/blob/master/code-of-conduct.md) for contributors.
-
-## Websites that Use Tachyons
-(if you have a project that uses Tachyons feel free to make a PR to add it to this list)
-
-## Help
-
-If you have a question feel free to open an issue here or jump into the [Tachyons slack channel](http://tachyons-slack-invite.herokuapp.com).
 
 ## License
 
