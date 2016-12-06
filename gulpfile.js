@@ -12,7 +12,8 @@
 		[2.1] CSS Concat & Minify
 		[2.2] JS Linting
 		[2.3] JS Concat & Minify
-		[2.4] Browser Sync Server
+		[2.4] 
+		[2.5] Browser Sync Server
 
 	[0.0] Available Gulp tasks
 		$ gulp
@@ -122,10 +123,12 @@ gulp.task('css', function(){
 	$ gulp jshint
 */
 
-gulp.task('jshint', function(){
+gulp.task('jshint', ['js'], function(){
 
 	// plumbing
 	return gulp.src(input.js)
+
+		.pipe(browserSync.stream())
 
 		// lint the javascript
 		.pipe(jshint())
@@ -162,15 +165,33 @@ gulp.task('js', function(cb){
 });
 
 /*
-	[2.4] Browser Sync Server
+	[2.4]
+*/
+
+gulp.task('js-watch', ['jshint'], function(done){
+	browserReload;
+	done();
+});
+
+/*
+	[2.5] Browser Sync Server
 	$ gulp server
 */
-gulp.task('server', ['css'], function(){
+
+gulp.task('server', ['css', 'js-watch'], function(){
 	browserSync.init({
 		server: "./"
 	});
 
-	gulp.watch(input.css, ['css']);
-	gulp.watch("./*.html").on('change', browserReload);
+	gulp.watch('./src/css/*.css', ['css']);
+	gulp.watch(input.js, ['jshint']);
+	gulp.watch('./*.html').on('change', browserReload);
 });
+
+/* 
+	[2.6] Default task
+	$ gulp
+*/
+
+gulp.task('default', ['server']);
 
