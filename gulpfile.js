@@ -12,6 +12,15 @@
 		[2.1] CSS Concat & Minify
 		[2.2] JS Linting
 		[2.3] JS Concat & Minify
+		[2.4] Browser Sync Server
+
+	[0.0] Available Gulp tasks
+		$ gulp
+			$ gulp css
+			$ gulp js
+				$ gulp js --type production
+				$ gulp jshint
+			$ gulp server
 */
 
 /* 
@@ -104,6 +113,8 @@ gulp.task('css', function(){
 		}))
 
 		.pipe(gulp.dest(output.css))
+
+		.pipe(browserSync.stream())
 });
 
 /*
@@ -149,3 +160,17 @@ gulp.task('js', function(cb){
 	cb 
 	);
 });
+
+/*
+	[2.4] Browser Sync Server
+	$ gulp server
+*/
+gulp.task('server', ['css'], function(){
+	browserSync.init({
+		server: "./"
+	});
+
+	gulp.watch(input.css, ['css']);
+	gulp.watch("./*.html").on('change', browserReload);
+});
+
