@@ -23,6 +23,7 @@
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "copy-files": "^0.1.0",
+    "gulp": "^3.9.1",
     "immutable-css-cli": "^1.1.1",
     "normalize.css": "^5.0.0",
     "parallelshell": "^2.0.0",
