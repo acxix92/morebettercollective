@@ -6,7 +6,7 @@
 	[1] Gulp.js plugin registry
 	[2] PostCSS plugin registry
 	[3] CSS processing task
-	[4] JavaScript hinting task
+	[4] JavaScript linting task
 */
 
 /* 
@@ -79,7 +79,7 @@ gulp.task('css', function(){
 });
 
 /*
-	[4] JavaScript processing task
+	[4] JavaScript linting task
 	$ gulp jshint
 */
 
