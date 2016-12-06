@@ -34,6 +34,7 @@
     "gulp-uncss": "^1.0.6",
     "gulp-watch": "^4.3.11",
     "immutable-css-cli": "^1.1.1",
+    "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "normalize.css": "^5.0.0",
     "parallelshell": "^2.0.0",
