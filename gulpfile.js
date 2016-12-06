@@ -19,12 +19,15 @@ var browserSync		= require('browser-sync').create();
 var browserReload	= browserSync.reload;
 var mqpacker		= require('css-mqpacker');
 var cssnano 		= require('cssnano');
+var concat 			= require('gulp-concat');
 var gulp 			= require('gulp');
 var imagemin 		= require('gulp-imagemin');
 var jshint 			= require('gulp-jshint');
 var postcss 		= require('gulp-postcss');
 var size 			= require('gulp-size');
+var sourcemaps 		= require('gulp-sourcemaps');
 var uncss 			= require('gulp-uncss');
+var util 			= require('gulp-util');
 var watch 			= require('gulp-watch');
 var calc 			= require('postcss-calc');
 var color 			= require('postcss-color-function');
@@ -63,8 +66,9 @@ var input 			= {
 */
 
 var output 			= {
-	'css': './dist/css'
-}
+	'css': './dist/css',
+	'js': './dist/js'
+};
 
 /* 
 	[4] CSS processing task
@@ -104,7 +108,7 @@ gulp.task('css', function(){
 gulp.task('jshint', function(){
 
 	// plumbing
-	return gulp.src('./src/js/*.js')
+	return gulp.src(input.js)
 
 		// lint the javascript
 		.pipe(jshint())
@@ -124,7 +128,13 @@ gulp.task('jshint', function(){
 gulp.task('js', function(){
 
 	// plumbing
-	return gulp.src('./src/js/*.js')
+	return gulp.src(input.js)
 
+		.pipe(sourcemaps.init())
 
-})
+			.pipe(concat('script.js'))
+
+		.pipe(sourcemaps.write())
+
+		.pipe(gulp.dest(output.js))
+});
