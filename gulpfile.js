@@ -54,7 +54,7 @@ var postcssPlugins 	= [
 gulp.task('css', function(){
 
 	// plumbing
-	return gulp.src('./src/tachyons.css')
+	return gulp.src('./src/css/tachyons.css')
 
 		// process via postcss
 		.pipe(postcss(postcssPlugins))
@@ -73,5 +73,5 @@ gulp.task('css', function(){
 			title: 'Size gZipped ->'
 		}))
 
-		.pipe(gulp.dest('./dest'))
+		.pipe(gulp.dest('./dist/css'))
 });
