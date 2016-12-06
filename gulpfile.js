@@ -130,11 +130,18 @@ gulp.task('js', function(){
 	// plumbing
 	return gulp.src(input.js)
 
+		// turn on sourcemapping
 		.pipe(sourcemaps.init())
 
+			// create this file
 			.pipe(concat('script.js'))
 
+			// uglify if ran as '--type production'
+			.pipe(util.env.type === 'production' ? uglify() : util.noop())
+
+		// write the sourcemap
 		.pipe(sourcemaps.write())
 
+		// spit out js here
 		.pipe(gulp.dest(output.js))
 });
