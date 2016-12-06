@@ -5,8 +5,9 @@
 	Table of Contents
 	[1] Gulp.js plugin registry
 	[2] PostCSS plugin registry
-	[3] CSS processing task
-	[4] JavaScript linting task
+	[3] Define asset [3.1] inputs & [3.2] outputs
+	[4] CSS processing task
+	[5] JavaScript linting task
 */
 
 /* 
@@ -48,15 +49,32 @@ var postcssPlugins 	= [
 	mqpacker
 ];
 
+/*
+	[3.1] Define asset inputs
+*/
+
+var input 			= {
+	'css': './src/css/tachyons.css',
+	'js': './src/js/*.js'
+};
+
+/*
+	[3.2] Define asset outputs
+*/
+
+var output 			= {
+	'css': './dist/css'
+}
+
 /* 
-	[3] CSS processing task
+	[4] CSS processing task
 	$ gulp css
 */
 
 gulp.task('css', function(){
 
 	// plumbing
-	return gulp.src('./src/css/tachyons.css')
+	return gulp.src(input.css)
 
 		// process via postcss
 		.pipe(postcss(postcssPlugins))
@@ -75,11 +93,11 @@ gulp.task('css', function(){
 			title: 'Size gZipped ->'
 		}))
 
-		.pipe(gulp.dest('./dist/css'))
+		.pipe(gulp.dest(output.css))
 });
 
 /*
-	[4] JavaScript linting task
+	[5] JavaScript linting task
 	$ gulp jshint
 */
 
@@ -97,3 +115,16 @@ gulp.task('jshint', function(){
 		// fail the task if jshint is non-passing
 		.pipe(jshint.reporter('fail'))
 });
+
+/* 
+	[6] JavaScript concat & minify tasks
+	$ gulp js
+*/
+
+gulp.task('js', function(){
+
+	// plumbing
+	return gulp.src('./src/js/*.js')
+
+
+})
