@@ -1,9 +1,15 @@
 /*
 	Dojo gulpfile
+	@link http://gulpjs.com
+	
+	Table of Contents
+	[1] Gulp.js plugin registry
+	[2] PostCSS plugin registry
+	[3] CSS processing task
 */
 
 /* 
-	Gulp plugin registry
+	Gulp.js plugin registry
 */
 
 var autoprefixer 	= require('autoprefixer')
@@ -52,6 +58,20 @@ gulp.task('css', function(){
 
 		// process via postcss
 		.pipe(postcss(postcssPlugins))
+
+		// display file size in terminal
+		.pipe(size({
+			gzip: false,
+			showFiles: true,
+			title: 'Size ->'
+		}))
+
+		// display file size in terminal
+		.pipe(size({
+			gzip: true,
+			showFiles: true,
+			title: 'Size gZipped ->'
+		}))
 
 		.pipe(gulp.dest('./dest'))
 });
