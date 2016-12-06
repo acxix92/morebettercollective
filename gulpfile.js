@@ -8,15 +8,18 @@
 		[1.1] Glup Plugins
 		[1.2] PostCSS Plugins
 		[1.3] Asset inputs and outputs
-	[2.0] Gulp tasks
+	[2.0] Create gulp tasks
 		[2.1] CSS Concat & Minify
 		[2.2] JS Linting
 		[2.3] JS Concat & Minify
 		[2.4] 
 		[2.5] Browser Sync Server
+		[2.6] Default task
+		[2.7] Proruction task
 
 	[0.0] Available Gulp tasks
 		$ gulp
+		$ gulp production [TDB]
 			$ gulp css
 			$ gulp js
 				$ gulp js --type production
@@ -194,4 +197,10 @@ gulp.task('server', ['css', 'js-watch'], function(){
 */
 
 gulp.task('default', ['server']);
+
+/* 
+	[2.7] Production task
+	$ gulp production
+*/
+// gulp.task('production', ['css', 'js --type production']);
 
