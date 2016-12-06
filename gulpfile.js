@@ -3,15 +3,19 @@
 	@link http://gulpjs.com
 	
 	Table of Contents
-	[1] Gulp.js plugin registry
-	[2] PostCSS plugin registry
-	[3] Define asset [3.1] inputs & [3.2] outputs
-	[4] CSS processing task
-	[5] JavaScript linting task
+	[0.0] Available tasks
+	[1.0] Variable definations
+		[1.1] Glup Plugins
+		[1.2] PostCSS Plugins
+		[1.3] Asset inputs and outputs
+	[2.0] Gulp tasks
+		[2.1] CSS Concat & Minify
+		[2.2] JS Linting
+		[2.3] JS Concat & Minify
 */
 
 /* 
-	[1] Gulp.js plugin registry
+	[1.1]
 */
 
 var autoprefixer 	= require('autoprefixer')
@@ -26,6 +30,7 @@ var jshint 			= require('gulp-jshint');
 var postcss 		= require('gulp-postcss');
 var size 			= require('gulp-size');
 var sourcemaps 		= require('gulp-sourcemaps');
+var uglify 			= require('gulp-uglify');
 var uncss 			= require('gulp-uncss');
 var util 			= require('gulp-util');
 var watch 			= require('gulp-watch');
@@ -35,9 +40,10 @@ var media 			= require('postcss-custom-media');
 var properties 		= require('postcss-custom-properties');
 var comments 		= require('postcss-discard-comments');
 var atImport 		= require('postcss-import');
+var pump 			= require('pump');
 
 /*
-	[2] PostCSS plugin registry
+	[1.2]
 */
 
 var postcssPlugins 	= [
@@ -53,7 +59,7 @@ var postcssPlugins 	= [
 ];
 
 /*
-	[3.1] Define asset inputs
+	[1.3]
 */
 
 var input 			= {
@@ -62,7 +68,7 @@ var input 			= {
 };
 
 /*
-	[3.2] Define asset outputs
+	[1.3]
 */
 
 var output 			= {
@@ -71,7 +77,7 @@ var output 			= {
 };
 
 /* 
-	[4] CSS processing task
+	[2.1] CSS processing task
 	$ gulp css
 */
 
@@ -101,7 +107,7 @@ gulp.task('css', function(){
 });
 
 /*
-	[5] JavaScript linting task
+	[2.2] JavaScript linting task
 	$ gulp jshint
 */
 
@@ -121,27 +127,25 @@ gulp.task('jshint', function(){
 });
 
 /* 
-	[6] JavaScript concat & minify tasks
+	[2.3] JavaScript concat & minify tasks
 	$ gulp js
+	$ gulp js --type production
 */
 
-gulp.task('js', function(){
+gulp.task('js', function(cb){
+	pump([
+		gulp.src(input.js),
 
-	// plumbing
-	return gulp.src(input.js)
+		sourcemaps.init(),
 
-		// turn on sourcemapping
-		.pipe(sourcemaps.init())
+			concat('script.js'),
 
-			// create this file
-			.pipe(concat('script.js'))
+			util.env.type === 'production' ? uglify() : util.noop(),
 
-			// uglify if ran as '--type production'
-			.pipe(util.env.type === 'production' ? uglify() : util.noop())
+		sourcemaps.write(),
 
-		// write the sourcemap
-		.pipe(sourcemaps.write())
-
-		// spit out js here
-		.pipe(gulp.dest(output.js))
+		gulp.dest(output.js)
+	],
+	cb 
+	);
 });

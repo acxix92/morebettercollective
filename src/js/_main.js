@@ -1,4 +1,21 @@
-function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t};
+function aload(nodes) {
+  'use strict';
+
+  var attribute = 'data-aload';
+
+  nodes = nodes || window.document.querySelectorAll('[' + attribute + ']');
+
+  if (nodes.length === undefined) {
+    nodes = [nodes];
+  }
+
+  [].forEach.call(nodes, function (node) {
+    node[ node.tagName !== 'LINK' ? 'src' : 'href' ] = node.getAttribute(attribute);
+    node.removeAttribute(attribute);
+  });
+
+  return nodes;
+};
 
 window.onload = function(){
 	aload();

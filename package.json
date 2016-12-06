@@ -48,6 +48,7 @@
     "postcss-custom-properties": "^5.0.1",
     "postcss-discard-comments": "^2.0.4",
     "postcss-import": "^9.0.0",
+    "pump": "^1.0.1",
     "tachyons-cli": "^1.0.9",
     "tachyons-modules": "^1.1.8",
     "watch": "^1.0.1"
