@@ -6,10 +6,11 @@
 	[1] Gulp.js plugin registry
 	[2] PostCSS plugin registry
 	[3] CSS processing task
+	[4] JavaScript hinting task
 */
 
 /* 
-	Gulp.js plugin registry
+	[1] Gulp.js plugin registry
 */
 
 var autoprefixer 	= require('autoprefixer')
@@ -19,6 +20,7 @@ var mqpacker		= require('css-mqpacker');
 var cssnano 		= require('cssnano');
 var gulp 			= require('gulp');
 var imagemin 		= require('gulp-imagemin');
+var jshint 			= require('gulp-jshint');
 var postcss 		= require('gulp-postcss');
 var size 			= require('gulp-size');
 var uncss 			= require('gulp-uncss');
@@ -31,7 +33,7 @@ var comments 		= require('postcss-discard-comments');
 var atImport 		= require('postcss-import');
 
 /*
-	PostCSS plugin registry
+	[2] PostCSS plugin registry
 */
 
 var postcssPlugins 	= [
@@ -47,7 +49,7 @@ var postcssPlugins 	= [
 ];
 
 /* 
-	CSS processing task
+	[3] CSS processing task
 	$ gulp css
 */
 
@@ -74,4 +76,24 @@ gulp.task('css', function(){
 		}))
 
 		.pipe(gulp.dest('./dist/css'))
+});
+
+/*
+	[4] JavaScript processing task
+	$ gulp jshint
+*/
+
+gulp.task('jshint', function(){
+
+	// plumbing
+	return gulp.src('./src/js/*.js')
+
+		// lint the javascript
+		.pipe(jshint())
+
+		// add color to error report in terminal
+		.pipe(jshint.reporter('jshint-stylish'))
+
+		// fail the task if jshint is non-passing
+		.pipe(jshint.reporter('fail'))
 });
