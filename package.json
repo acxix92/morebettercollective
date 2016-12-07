@@ -74,5 +74,8 @@
     "build:minify": "tachyons src/tachyons.css -m > css/tachyons.min.css",
     "build:watch": "watch 'npm run build' ./src/",
     "server": "browser-sync start --server --files 'css/*.css, *.html'"
+  },
+  "dependencies": {
+  
   }
 }
