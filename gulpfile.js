@@ -89,7 +89,7 @@ var postcssPlugins 	= [
 var input 			= {
 	'css': './src/css/tachyons.css',
 	'js': './src/js/*.js',
-	'img': './src/**.*'
+	'img': './src/img/**.*'
 };
 
 /*
@@ -204,7 +204,7 @@ gulp.task('img', function(){
 			verbose: true
 		}))
 
-		.pipe(gulp.dest(ouput.img))
+		.pipe(gulp.dest('dist/img'))
 });
 
 /*
