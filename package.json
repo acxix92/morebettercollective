@@ -29,7 +29,9 @@
     "copy-files": "^0.1.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.8.1",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
     "gulp-jshint": "^2.0.4",
@@ -75,7 +77,5 @@
     "build:watch": "watch 'npm run build' ./src/",
     "server": "browser-sync start --server --files 'css/*.css, *.html'"
   },
-  "dependencies": {
-  
-  }
+  "dependencies": {}
 }
