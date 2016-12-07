@@ -47,6 +47,7 @@ var browserSync     = require('browser-sync').create();
 var browserReload   = browserSync.reload;
 var mqpacker        = require('css-mqpacker');
 var cssnano         = require('cssnano');
+var cache           = require('gulp-cache');
 var concat          = require('gulp-concat');
 var gulp            = require('gulp');
 var imagemin        = require('gulp-imagemin');
@@ -200,9 +201,11 @@ gulp.task('js-watch', ['jshint'], function(done){
 gulp.task('img', function(){
 	return gulp.src(input.img)
 
-		.pipe(imagemin({
-			verbose: true
-		}))
+		.pipe(cache(imagemin({
+			// imagemin options
+			verbose: true,
+			interlaced: true
+		})))
 
 		.pipe(gulp.dest(output.img))
 });
