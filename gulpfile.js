@@ -22,6 +22,8 @@
 		[4.1] JS Reload Plumbing
 		[4.2] IMG Processing 
 		[4.3] Start Browser Sync Server
+		[4.4] Drop /dist Assets
+		[4.5] Drop Cache
 
 	[5.0] Master Tasks
 		[5.1] Default Task
@@ -47,6 +49,7 @@ var browserSync     = require('browser-sync').create();
 var browserReload   = browserSync.reload;
 var mqpacker        = require('css-mqpacker');
 var cssnano         = require('cssnano');
+var del             = require('del');
 var cache           = require('gulp-cache');
 var concat          = require('gulp-concat');
 var gulp            = require('gulp');
@@ -223,6 +226,24 @@ gulp.task('server', ['css', 'js-watch'], function(){
 	gulp.watch('./src/css/*.css', ['css']);
 	gulp.watch(input.js, ['jshint']);
 	gulp.watch('./*.html').on('change', browserReload);
+});
+
+/*
+	[4.4] Drop /dist Assets
+	$ gulp drop:assets
+*/
+
+gulp.task('drop:assets', function(){
+	return del.sync('dist')
+});
+
+/*
+	[4.5] Drop Cache
+	$ gulp drop:cache
+*/
+
+gulp.task('drop:cache', function(cb){
+	return cache.clearAll(cb)
 });
 
 /* 
