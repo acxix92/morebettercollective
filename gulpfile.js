@@ -31,13 +31,6 @@
  
 
 	[0.0] Available Gulp Commands
-		$ gulp
-		$ gulp production [TDB]
-			$ gulp css
-			$ gulp js
-				$ gulp js --type min
-				$ gulp jshint
-			$ gulp server
 */
 
 /* 
