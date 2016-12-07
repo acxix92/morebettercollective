@@ -1,5 +1,5 @@
 {
-  "name": "dojo",
+  "name": "yarn-usage-dojo",
   "version": "0.0.0",
   "description": "A learning project for the HW interactive design team",
   "author": "Justin Chick",
@@ -9,7 +9,10 @@
     "css",
     "src"
   ],
-  "repository": "hw-interactive/dojo",
+  "repository": {
+    "url": "https://github.com/hw-interactive/dojo.git",
+    "type": "git"
+  },
   "keywords": [
     "css",
     "oocss",

@@ -1,7 +1,7 @@
 {
-  "name": "dojo",
+  "name": "yarn-usage-dojo",
   "description": "A learning project for the HW interactive design team",
-  "main": "css/tachyons.min.css",
+  "main": "css/tachyons.css",
   "authors": [
     "Justin Chick"
   ],
@@ -20,5 +20,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "version": "0.0.0",
+  "repository": {
+    "url": "https://github.com/hw-interactive/dojo.git",
+    "type": "git"
+  },
+  "author": "Justin Chick"
 }
