@@ -204,7 +204,7 @@ gulp.task('img', function(){
 			verbose: true
 		}))
 
-		.pipe(gulp.dest('dist/img'))
+		.pipe(gulp.dest(output.img))
 });
 
 /*
