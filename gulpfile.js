@@ -3,21 +3,32 @@
 	@link http://gulpjs.com
 	
 	Table of Contents
-	[0.0] Available tasks
+
+	[0.0] Available Gulp Commands
+
 	[1.0] Variable definations
 		[1.1] Glup Plugins
 		[1.2] PostCSS Plugins
 		[1.3] Asset inputs and outputs
-	[2.0] Create gulp tasks
-		[2.1] CSS Concat & Minify
-		[2.2] JS Linting
-		[2.3] JS Concat & Minify
-		[2.4] 
-		[2.5] Browser Sync Server
-		[2.6] Default task
-		[2.7] Proruction task
 
-	[0.0] Available Gulp tasks
+	[2.0] Build Tasks
+		[2.1] CSS Concat & Minify
+		[2.2] JS Concat & Minify
+
+	[3.0] Linting / Testing Tasks
+		[3.1] JS Linting
+
+	[4.0] Util Tasks
+		[4.1] JS Reload Plumbing
+		[4.2] IMG Processing 
+		[4.3] Start Browser Sync Server
+
+	[5.0] Master Tasks
+		[5.1] Default Task
+		[5.2] Production Task
+ 
+
+	[0.0] Available Gulp Commands
 		$ gulp
 		$ gulp production [TDB]
 			$ gulp css
@@ -77,7 +88,8 @@ var postcssPlugins 	= [
 
 var input 			= {
 	'css': './src/css/tachyons.css',
-	'js': './src/js/*.js'
+	'js': './src/js/*.js',
+	'img': './src/**.*'
 };
 
 /*
@@ -86,11 +98,12 @@ var input 			= {
 
 var output 			= {
 	'css': './dist/css',
-	'js': './dist/js'
+	'js': './dist/js',
+	'img': './dist/img'
 };
 
 /* 
-	[2.1] CSS processing task
+	[2.1] CSS Concat & Minify
 	$ gulp css
 */
 
@@ -121,30 +134,8 @@ gulp.task('css', function(){
 		.pipe(browserSync.stream())
 });
 
-/*
-	[2.2] JavaScript linting task
-	$ gulp jshint
-*/
-
-gulp.task('jshint', ['js'], function(){
-
-	// plumbing
-	return gulp.src(input.js)
-
-		.pipe(browserSync.stream())
-
-		// lint the javascript
-		.pipe(jshint())
-
-		// add color to error report in terminal
-		.pipe(jshint.reporter('jshint-stylish'))
-
-		// fail the task if jshint is non-passing
-		.pipe(jshint.reporter('fail'))
-});
-
 /* 
-	[2.3] JavaScript concat & minify tasks
+	[2.2] JS Concat & Minify
 	$ gulp js
 	$ gulp js --type min
 */
@@ -168,7 +159,32 @@ gulp.task('js', function(cb){
 });
 
 /*
-	[2.4]
+	[3.1] JS Linting
+	$ gulp jshint
+*/
+
+gulp.task('jshint', ['js'], function(){
+
+	// plumbing
+	return gulp.src(input.js)
+
+		.pipe(browserSync.stream())
+
+		// lint the javascript
+		.pipe(jshint())
+
+		// add color to error report in terminal
+		.pipe(jshint.reporter('jshint-stylish'))
+
+		// fail the task if jshint is non-passing
+		.pipe(jshint.reporter('fail'))
+});
+
+
+
+/*
+	[4.1] JS Reload Plumbing
+	Just used for plumping
 */
 
 gulp.task('js-watch', ['jshint'], function(done){
@@ -177,7 +193,22 @@ gulp.task('js-watch', ['jshint'], function(done){
 });
 
 /*
-	[2.5] Browser Sync Server
+	[4.2] IMG Processing
+	$ gulp img
+*/
+
+gulp.task('img', function(){
+	return gulp.src(input.img)
+
+		.pipe(imagemin({
+			verbose: true
+		}))
+
+		.pipe(gulp.dest(ouput.img))
+});
+
+/*
+	[4.3] Start Browser Sync Server
 	$ gulp server
 */
 
@@ -192,14 +223,14 @@ gulp.task('server', ['css', 'js-watch'], function(){
 });
 
 /* 
-	[2.6] Default task
+	[5.1] Default task
 	$ gulp
 */
 
 gulp.task('default', ['server']);
 
 /* 
-	[2.7] Production task
+	[5.2] Production task
 	$ gulp production
 */
 // gulp.task('production', ['css', 'js --type production']);
