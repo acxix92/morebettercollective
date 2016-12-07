@@ -9,7 +9,8 @@
 	[1.0] Variable definations
 		[1.1] Glup Plugins
 		[1.2] PostCSS Plugins
-		[1.3] Asset inputs and outputs
+		[1.3.1] Asset Inputs
+		[1.3.2] Asset Outputs
 
 	[2.0] Build Tasks
 		[2.1] CSS Concat & Minify
@@ -31,6 +32,15 @@
  
 
 	[0.0] Available Gulp Commands
+		$ gulp [5.1]
+		$ gulp server [4.3]
+		$ gulp css [2.1]
+		$ gulp js [2.2]
+		$ gulp img [4.2]
+		$ gulp jshint [3.1]
+		$ gulp js-plumbing [4.1]
+		$ gulp drop:assets [4.4]
+		$ gulp drop:cache [4.5]
 */
 
 /* 
@@ -65,6 +75,7 @@ var pump            = require('pump');
 
 /*
 	[1.2]
+	Define PostCSS plugin use and order for the CSS processing task below
 */
 
 var postcssPlugins 	= [
@@ -80,17 +91,23 @@ var postcssPlugins 	= [
 ];
 
 /*
-	[1.3]
+	[1.3.1]
+	Define either as a string or array paths relative to the site root
+	for assets to be consumed and processed via gulp tasks
 */
 
 var input 			= {
 	'css': './src/css/tachyons.css',
-	'js': './src/js/*.js',
+	'js': [
+		'./src/js/*.js',
+		'./src/js/_main.js'
+	],
 	'img': './src/img/**.*'
 };
 
 /*
-	[1.3]
+	[1.3.2]
+	Define asset output paths
 */
 
 var output 			= {
@@ -133,6 +150,13 @@ gulp.task('css', function(){
 
 /* 
 	[2.2] JS Concat & Minify
+	
+	@see https://github.com/mafintosh/pump
+	@see https://github.com/floridoo/gulp-sourcemaps
+	@see https://github.com/contra/gulp-concat
+	@see https://github.com/gulpjs/gulp-util
+	@see https://github.com/terinjokes/gulp-uglify
+
 	$ gulp js
 	$ gulp js --type min
 */
@@ -143,7 +167,7 @@ gulp.task('js', function(cb){
 
 		sourcemaps.init(),
 
-			concat('script.js'),
+			concat('scripts.js'),
 
 			util.env.type === 'min' ? uglify() : util.noop(),
 
@@ -184,7 +208,7 @@ gulp.task('jshint', ['js'], function(){
 	Just used for plumping
 */
 
-gulp.task('js-watch', ['jshint'], function(done){
+gulp.task('js-plumbing', ['jshint'], function(done){
 	browserReload;
 	done();
 });
@@ -211,7 +235,7 @@ gulp.task('img', function(){
 	$ gulp server
 */
 
-gulp.task('server', ['css', 'js-watch'], function(){
+gulp.task('server', ['css', 'js-plumbing'], function(){
 	browserSync.init({
 		server: "./"
 	});

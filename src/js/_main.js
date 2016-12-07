@@ -17,6 +17,3 @@ function aload(nodes) {
   return nodes;
 }
 
-window.onload = function(){
-	aload();
-};
