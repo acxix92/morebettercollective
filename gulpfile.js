@@ -22,7 +22,7 @@
 		$ gulp production [TDB]
 			$ gulp css
 			$ gulp js
-				$ gulp js --type production
+				$ gulp js --type min
 				$ gulp jshint
 			$ gulp server
 */
@@ -146,7 +146,7 @@ gulp.task('jshint', ['js'], function(){
 /* 
 	[2.3] JavaScript concat & minify tasks
 	$ gulp js
-	$ gulp js --type production
+	$ gulp js --type min
 */
 
 gulp.task('js', function(cb){
@@ -157,7 +157,7 @@ gulp.task('js', function(cb){
 
 			concat('script.js'),
 
-			util.env.type === 'production' ? uglify() : util.noop(),
+			util.env.type === 'min' ? uglify() : util.noop(),
 
 		sourcemaps.write(),
 
