@@ -69,7 +69,7 @@
     }
   ],
   "scripts": {
-    "start": "parallelshell 'npm run server' 'npm run build:watch'",
+    "start": "parallelshell 'gulp'",
     "mutations": "immutable-css src/tachyons.css --strict",
     "build": "npm run build:css && npm run build:minify",
     "build:css": "tachyons src/tachyons.css > css/tachyons.css",
