@@ -77,5 +77,7 @@
     "build:watch": "watch 'npm run build' ./src/",
     "server": "browser-sync start --server --files 'css/*.css, *.html'"
   },
-  "dependencies": {}
+  "dependencies": {
+    "barba.js": "^1.0.0"
+  }
 }
