@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>
-      The Dojo (barba2)
+      The Dojo
     </title>
     <meta name="author" content="">
     <meta name="description" content="">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/dist/css/tachyons.css">
   </head>
   <body class="sans-serif bg-green">
-  <main class="flex flex-wrap vh-100">
+  <main id="barba-wrapper" class="flex flex-wrap vh-100">
 
     <!-- Left Rail -->
     <div class="w-100 w-20-ns mv3">
@@ -20,26 +20,26 @@
         <p class="ma0 tc">Dojo</p>
       </div>
       
-    <!-- links -->
-    <div class="center pa4 mt0 ">
-    <dl class="f9 lh-title">
-    <a href="#" class="pa2 animsition-link">page 2</a><br>
-    <a href="#" class="pa2 animsition-link">page 3</a><br>
-    <a href="#" class="pa2 animsition-link">page 4</a><br>
-    <a href="#" class="pa2 animsition-link">page 5</a><br>
-    </dl>
-    </div>
-        <!-- links -->
-
-
+      <!-- links -->
+      <div class="center pa4 mt0">
+        <ul class="list pl0">
+          <li class="pa2">
+            <a class="db tc next" href="barba3.html">next</a>
+          </li>
+          <li class="pa2">
+            <a class="db tc prev" href="index.html">prev</a>
+          </li>
+        </ul>
+      </div>
+      <!-- links -->
     </div>
     <!-- / Left Rail -->
 
     <!-- Main Content Area -->
-    <div class="w-100 w-80-ns mv3 overflow-scroll">
-      <div class="bg-blue white mh3 br3 pa3 min-h-100">
+    <div class="barba-container w-100 w-80-ns mv3 overflow-scroll" data-prev="index.html" data-next="barba3.html">
+      <div class="bg-blue white mh3 br3 pa3 min-h-100" data-next="index.html">
         <div class="overflow-hidden">
-          <h1 class="f-headline ma0">Barba.js </h1>
+          <h1 class="f-headline ma0">Hi, I'm barba 2</h1>
           <h2 class="measure f3 ttu fw2 tracked">Tagline edxcepteur sint occaecat cupidatat</h2>
           <p class="measure f5 f4-ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -86,6 +86,6 @@
   </main>
   </body>
 
-  <script src="barba.min.js" type="text/javascript"></script>
-  <script src="/dist/js/script.js"></script>
+  <script src="/dist/js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js"></script>
 </html>

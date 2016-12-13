@@ -99,7 +99,7 @@ var postcssPlugins 	= [
 var input 			= {
 	'css': './src/css/tachyons.css',
 	'js': [
-		'./node_modules/barba.js',
+		'./node_modules/barba.js/dist/barba.js',
 		'./src/js/*.js',
 		'./src/js/_main.js'
 	],
