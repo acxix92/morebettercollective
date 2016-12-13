@@ -77,7 +77,5 @@
     "build:watch": "watch 'npm run build' ./src/",
     "server": "browser-sync start --server --files 'css/*.css, *.html'"
   },
-  "dependencies": {
-    "animsition": "^4.0.2"
-  }
+  "dependencies": {}
 }
