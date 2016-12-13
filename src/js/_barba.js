@@ -3,8 +3,8 @@ document.addEventListener( "DOMContentLoaded", function () {
 	
 	// define vars to use later
 	var lastElementClicked;
-	var prevLink = document.querySelector('a.prev');
-	var nextlink = document.querySelector('a.next');
+	var PrevLink = document.querySelector('a.prev');
+	var NextLink = document.querySelector('a.next');
 
 	// init barba & prefetcher
 	Barba.Pjax.init();
