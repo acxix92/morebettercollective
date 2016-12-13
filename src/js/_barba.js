@@ -50,7 +50,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
 			if (this.getNewPageFile() === this.oldContainer.dataset.prev){
 				goingForward = false;
-			};
+			}
 
 			TweenLite.set(this.newContainer, {
 				visibility: 'visible',
