@@ -192,6 +192,10 @@ gulp.task('jshint', ['js'], function(){
 
 		.pipe(browserSync.stream())
 
+		// extract javascript from HTML files before linting
+		// only reads and reports
+		.pipe(jshint.extract('auto'))
+
 		// lint the javascript
 		.pipe(jshint())
 
