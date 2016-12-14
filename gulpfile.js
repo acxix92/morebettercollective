@@ -99,6 +99,7 @@ var postcssPlugins 	= [
 var input 			= {
 	'css': './src/css/tachyons.css',
 	'js': [
+		'./node_modules/barba.js/dist/barba.js',
 		'./src/js/*.js',
 		'./src/js/_main.js'
 	],
@@ -190,6 +191,10 @@ gulp.task('jshint', ['js'], function(){
 	return gulp.src(input.js)
 
 		.pipe(browserSync.stream())
+
+		// extract javascript from HTML files before linting
+		// only reads and reports
+		.pipe(jshint.extract('auto'))
 
 		// lint the javascript
 		.pipe(jshint())
