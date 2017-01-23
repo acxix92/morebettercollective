@@ -100,6 +100,7 @@ var input 			= {
 	'css': './src/css/tachyons.css',
 	'js': [
 		'./node_modules/barba.js/dist/barba.js',
+		'./bower_components/zoom.js/zoom.js',
 		'./src/js/*.js',
 		'./src/js/_main.js'
 	],
