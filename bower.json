@@ -27,7 +27,9 @@
     "type": "git"
   },
   "author": "Justin Chick",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.7",
     "zoom.js": "^0.0.1"
   }
 }
