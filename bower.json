@@ -26,5 +26,10 @@
     "url": "https://github.com/hw-interactive/dojo.git",
     "type": "git"
   },
-  "author": "Justin Chick"
+  "author": "Justin Chick",
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "zoom.js": "^0.0.1"
+  }
 }
