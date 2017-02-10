@@ -24,6 +24,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       min-width:  100%;
+      max-width: 100%;
       min-height: 100%;
       width: auto;
       height: auto;
@@ -39,7 +40,7 @@
 
  
  <!-- Video Cover -->
-<div class="vh-100 dt w-100 tc cover">
+<div class="vh-100 dt w-100 mw-100 tc cover">
  <video poster="vid/Up/Snapshots/Up.jpg" autoplay="true" loop >
   <source src="vid/Up/MP4/Up.mp4" type="video/mp4">
   <source src="vid/Up/WEBM/Up.webm" type="video/webm">
@@ -64,10 +65,13 @@
       </blockquote>
 
 <!--NAV-->
-<nav>
-  <div class="db absolute w-100 flex bottom--1 lh-solid pa4 bg-black-30 shadow-3">
-
-
+<nav class="absolute bottom-0 w-100 flex pa4 shadow-3 bg-black-30">
+  <div class="lh-solid">
+    <ul class="list pl0 di">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
   </div>
 </nav>
 <!--/NAV-->
