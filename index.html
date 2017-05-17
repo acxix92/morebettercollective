@@ -10,111 +10,122 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/dist/css/tachyons.css">
-  </head>
-  <body class="sans-serif bg-white">
-  <main id="barba-wrapper" class="flex flex-wrap vh-100">
 
-
-
-
-    <!-- Left Rail -->
-    <div class="w-100 w-20-ns mv3">
-      <div class="fixed w-20">
-      <p class="ma0 tc">Dojo</p>
-    </div>
-    
-      <!-- links -->
-     <!-- <div class="center pa4 mt0">
-        <ul class="list pl0">
-          <li class="pa2">
-            <a class="db tc next" href="barba2.html">next</a>
-          </li>
-          <li class="pa2">
-            <a class="db tc prev" href="barba3.html">prev</a>
-          </li>
-        </ul>
-      </div>-->
-
-    <div class="flex items-center justify-center pa4">
-      <a href="vidcover.html" class="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
-        <svg class="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style="fill:currentcolor">
-          <title>chevronLeft icon</title>
-          <path d="M20 1 L24 5 L14 16 L24 27 L20 31 L6 16 z"></path>
-        </svg>
-          <span class="pl1 grow">Previous</span>
-        </a>
-      <a href="barba2.html" class="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
-        <span class="pr1 grow">Next</span>
-         <svg class="w1" data-icon="chevronRight" viewBox="0 0 32 32" style="fill:currentcolor">
-          <title>chevronRight icon</title>
-          <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z"></path>
-        </svg>
-      </a>
-    </div>
-
-      <!-- links -->
-
-    </div>
-    <!-- / Left Rail -->
-
-    <!-- Main Content Area -->
-    <div class="barba-container w-100 w-80-ns mv3 overflow-scroll" data-prev="barba3.html" data-next="barba2.html">
-      <div class="bg-white black mh3 br3 pa3 min-h-100">
-        <div class="overflow-hidden">
-        
-          <!--<h1 class="f-headline ma0">INDEX</h1> 
-          <h2 class="measure f3 ttu fw2 tracked"></h2>-->
-
-          <!--<p class="measure f5 f4-ns">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-
-
-  <div class="cf pa3 pa4-m pa5-l mw9 center">
-  <div class="fr w-100 w-80-l">
-   
-     <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
-        <span class="bg-black-90 lh-copy white pa1 tracked-tight">
-        HWINTERACTIVE
-        </span>
-        </h3>
-  </div>
-
-  <div>
-    <ul class="list pa3 pa5-ns">
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">Project1</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">Project2</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">Project3</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">Project4</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">Project5</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">
-  Project6</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">
-  Project7</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">
-  Project8</a></li>
-  <li class="dib mr2"><a href="#" class="f4 f2-ns b db pa2 link dim mid-gray">
-</ul>
-
-
-  </div>
   
- 
-</div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
+    .background-wrap {
+     position: fixed;
+     z-index: -1000;
+     width: 100%;
+     height: 100%;
+     overflow:  hidden;
+     top: 0;
+     left: 0;
+    }
+
+    video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 100%;
+      min-width: 100%;
+    }
+
+  </style>
+
+
+
+  </head>
+  <body class="sans-serif bg-white debug-grid">
+
+ 
+ <!-- Video Cover -->
+  <div class="background-wrap">
+    <video poster="vid/Up/Snapshots/Up.jpg" autoplay="true" loop >
+    <source src="vid/Up/MP4/Up.mp4" type="video/mp4">
+    <source src="vid/Up/WEBM/Up.webm" type="video/webm">
+    <source src="vid/Up/OGV/Up.ogv" type="video/ogv">
+    </video>
+  </div>
+
+
+<!--text on cover -->
+  <div class="vh-100 dt w-100 tc white cover">
+    <div class="dtc v-mid">
+      <header class="white-70">
+        <h2 class="f6 fw1 ttu tracked mb2 lh-title">Team Donut</h2>
+      </header>
+      <h1 class="f1 f-headline-l fw1 i white-60">Dojo</h1>
+      <blockquote class="ph0 mh0 measure f4 lh-copy center">
+        <p class="fw1 white-70">
+          Interactive Gym 
+        </p>
+        <cite class="f6 ttu tracked fs-normal">Alexander Cortez</cite>
+      </blockquote>
+    </div>
+  </div>
+<!--/text on cover -->
+
+
+<!--NAV-->
+<nav class="absolute fixed bottom-0 w-100 bg-animate   black">
+  <div class="center mw4 w-100 pb4 pb5-ns ph3 ph0-l">
+        <!--<a href="barba2.html" class="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
+          <svg class="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style="fill:currentcolor">
+            <title>chevronLeft icon</title>
+              <path d="M20 1 L24 5 L14 16 L24 27 L20 31 L6 16 z"></path>
+          </svg>
+          <span class="pl1 grow">Previous</span>
+        </a>-->
+        <!--Elminated previous button on homepage--> 
+        
+        <a href="barba2.html" class="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
+          <span class="tc grow">Welcome</span>
+            <svg class="" data-icon="chevronRight" viewBox="0 0 32 32" style="fill:currentcolor">
+              <title>chevronRight icon</title>
+              <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z"></path>
+            </svg>
+        </a>
 
         
-        </div>
-      </div>
-    </div>
-    <!-- / Main Content Area -->
+   
+  </div>
+</nav>
+<!--/NAV-->
 
-  </main>
+ <!-- /Video Cover -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- /Video Cover -->
+
+
+<!-- Main content -->
+
+
+
+<!-- /Main content -->
+
+
+
+
+
+
   </body>
+  
 
-  <script src="/dist/js/scripts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js"></script>
+
 </html>
