@@ -3,7 +3,7 @@
   "description": "A learning project for the HW interactive design team",
   "main": "css/tachyons.css",
   "authors": [
-    "Justin Chick"
+      "Alexander Cortez - Justin Chick",
   ],
   "license": "MIT",
   "keywords": [
@@ -13,7 +13,7 @@
     "responsive",
     "design"
   ],
-  "homepage": "https://github.com/hw-interactive/dojo",
+  "homepage": "https://github.com/acxix92/morebettercollective",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -23,10 +23,10 @@
   ],
   "version": "0.0.0",
   "repository": {
-    "url": "https://github.com/hw-interactive/dojo.git",
+    "url": "https://github.com/acxix92/morebettercollective",
     "type": "git"
   },
-  "author": "Justin Chick",
+  "author": "Alexander Cortez - Justin Chick",
   "devDependencies": {
     "flexslider": "FlexSlider#^2.6.3"
   },
